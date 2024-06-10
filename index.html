@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PACMAN</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div style="display: none">
+      <img id="animation" src="assets/animations.gif" width="140" height="20" />
+      <img id="ghosts" src="assets/ghost.png" width="140" height="20" />
+    </div>
+    <div class="container">
+      <canvas width="420" height="480" id="canvas"></canvas>
+      <canvas
+        style="display: none"
+        width="420"
+        height="480"
+        id="staticCanvas"
+      ></canvas>
+    </div>
+    <div class="arrow-keys">
+      <div class="arrow-row">
+        <button class="reset-button" id="reset">Reset</button>
+        <div class="arrow-key" id="up">&uarr;</div>
+        <button class="reset-button" id="debug">Debug off</button>
+      </div>
+      <div class="arrow-row">
+        <div class="arrow-key" id="left">&larr;</div>
+        <div class="arrow-key" id="down">&darr;</div>
+        <div class="arrow-key" id="right">&rarr;</div>
+      </div>
+      <div class="ghost-container">
+        <div class="ghost-range" id="ghostRange">Ghost Range off</div>
+      </div>
+    </div>
+    <script src="game.js" type="module"></script>
+    <script src="arrows.js" type="module"></script>
+  </body>
+</html>
