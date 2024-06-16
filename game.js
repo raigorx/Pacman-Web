@@ -61,8 +61,6 @@ const sleep = (ms, context) =>
     })
   })
 
-const abortableSleep = async (ms, context) => await sleep(ms, context)
-
 const isDead = () => lives === 0
 const isWin = () => state.score === maxScore
 
@@ -140,7 +138,7 @@ const drawWall = async (i, j) => {
     blue,
     canvasCtx
   ) // start with a blue square
-  debugState && (await abortableSleep(delay, `drawWall ${debugState}`))
+  debugState && (await sleep(delay, `drawWall ${debugState}`))
 
   // draw rectangles big enough to cover the wall space and because
   // the rectangle has the same color as the background, it will look like a open space
@@ -155,7 +153,7 @@ const drawWall = async (i, j) => {
       leftRectColor,
       canvasCtx
     )
-    debugState && (await abortableSleep(delay, `drawWall ${debugState}`))
+    debugState && (await sleep(delay, `drawWall ${debugState}`))
   }
 
   const hasValidRightIndex = j < MAP[0].length - 1
@@ -169,7 +167,7 @@ const drawWall = async (i, j) => {
       rightRectColor,
       canvasCtx
     )
-    debugState && (await abortableSleep(delay, `drawWall ${debugState}`))
+    debugState && (await sleep(delay, `drawWall ${debugState}`))
   }
 
   const hasValidBottomIndex = i < MAP.length - 1
@@ -183,7 +181,7 @@ const drawWall = async (i, j) => {
       bottomRectColor,
       canvasCtx
     )
-    debugState && (await abortableSleep(delay, `drawWall ${debugState}`))
+    debugState && (await sleep(delay, `drawWall ${debugState}`))
   }
 
   const hasValidTopIndex = i > 0
@@ -197,7 +195,7 @@ const drawWall = async (i, j) => {
       topRectColor,
       canvasCtx
     )
-    debugState && (await abortableSleep(delay, `drawWall ${debugState}`))
+    debugState && (await sleep(delay, `drawWall ${debugState}`))
   }
 }
 
@@ -250,12 +248,12 @@ const draw = async () => {
   drawRect(0, 0, canvas.width, canvas.height, wallSpaceColor, canvasContext)
   await drawMap()
   drawGhosts()
-  debugState && (await abortableSleep(delay + 1000))
+  debugState && (await sleep(delay + 1000))
   state.pacman.draw()
-  debugState && (await abortableSleep(delay + 1000))
+  debugState && (await sleep(delay + 1000))
   drawScore()
   drawRemainingLives()
-  debugState && (await abortableSleep(delay + 2000))
+  debugState && (await sleep(delay + 2000))
 }
 
 const createGhosts = () => {
